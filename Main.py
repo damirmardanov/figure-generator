@@ -2,6 +2,7 @@ from __future__ import division
 from Utilities import Utilities
 from Plotter import Plotter
 from Processing import Processing
+from Converter import Converter
 from figures.Bar import BarBuilder
 from figures.Circle import CircleBuilder
 from figures.Dots import DotsBuilder
@@ -10,6 +11,7 @@ from figures.Popcorn import PopcornBuilder
 
 
 def main():
+    utilities = Utilities(input("Input csv file name: "))
     figure_numbers = {}
     figure_numbers.update({"Bar": int(input("Input number of 'Bar' pictures: "))})
     figure_numbers.update({"Circle": int(input("Input number of 'Circle' pictures: "))})
@@ -17,7 +19,7 @@ def main():
     figure_numbers.update({"Ellipse": int(input("Input number of 'Ellipse' pictures: "))})
     figure_numbers.update({"Popcorn": int(input("Input number of 'Popcorn' pictures: "))})
 
-    Utilities().clear_output_images()
+    utilities.clear_output_images()
     # folder = 'C:/Users/Дамир/Desktop/Учеба/Диплом/training_images'
     # Utilities.clear_folder(folder)
 
@@ -27,7 +29,11 @@ def main():
 
         bar = BarBuilder.generate_random()
         Plotter.plot(bar, filename='C:/Directory/output.png')
-        Processing.process_image('images/Bars/sample' + str(iterations) + '.png')
+        image = Processing.process_image('images/Bars/sample' + str(iterations) + '.png')
+
+        utilities.write_row_to_file(
+            Converter.convert_image_to_csv_row(image, "Bar")
+        )
 
         iterations += 1
     print("Bars created")
@@ -38,7 +44,11 @@ def main():
 
         circle = CircleBuilder.generate_random()
         Plotter.plot(circle, filename='C:/Directory/output.png')
-        Processing.process_image('images/Circles/sample' + str(iterations) + '.png')
+        image = Processing.process_image('images/Circles/sample' + str(iterations) + '.png')
+
+        utilities.write_row_to_file(
+            Converter.convert_image_to_csv_row(image, "Circle")
+        )
 
         iterations += 1
     print("Circles created")
@@ -49,7 +59,11 @@ def main():
 
         dots = DotsBuilder.generate_random()
         Plotter.plot(figures=dots, filename='C:/Directory/output.png')
-        Processing.process_image('images/Dots/sample' + str(iterations) + '.png')
+        image = Processing.process_image('images/Dots/sample' + str(iterations) + '.png')
+
+        utilities.write_row_to_file(
+            Converter.convert_image_to_csv_row(image, "Dots")
+        )
 
         iterations += 1
     print("Dots created")
@@ -60,7 +74,11 @@ def main():
 
         ellipse = EllipseBuilder.generate_random()
         Plotter.plot(ellipse, filename='C:/Directory/output.png')
-        Processing.process_image('images/Ellipses/sample' + str(iterations) + '.png')
+        image = Processing.process_image('images/Ellipses/sample' + str(iterations) + '.png')
+
+        utilities.write_row_to_file(
+            Converter.convert_image_to_csv_row(image, "Ellipse")
+        )
 
         iterations += 1
     print("Ellipse created")
@@ -71,7 +89,11 @@ def main():
 
         popcorn = PopcornBuilder.generate_random()
         Plotter.plot(figures=popcorn, filename='C:/Directory/output.png')
-        Processing.process_image('images/Popcorn/sample' + str(iterations) + '.png')
+        image = Processing.process_image('images/Popcorn/sample' + str(iterations) + '.png')
+
+        utilities.write_row_to_file(
+            Converter.convert_image_to_csv_row(image, "Popcorn")
+        )
 
         iterations += 1
     print("Popcorn created")

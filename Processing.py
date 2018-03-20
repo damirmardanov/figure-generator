@@ -16,4 +16,4 @@ class Processing:
             im.close()
             return
         im.save(output_image_path)
-        im.close()
+        return im
