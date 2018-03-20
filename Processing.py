@@ -5,8 +5,10 @@ from PIL import Image
 class Processing:
     @staticmethod
     def process_image(output_image_path):
-        os.system('C:/Users/Дамир/Desktop/Учеба/Диплом/Project/GaussianBlur/bin/Debug/KernelConvolution.exe')
-        os.system('C:/Users/Дамир/Desktop/Учеба/Диплом/Project/Sobel/bin/Debug/Sobel.exe')
+        os.system('C:/Users/Дамир/PycharmProjects/figure-generator/outer_image_processing/GaussianBlur/bin/Debug'
+                  '/KernelConvolution.exe')
+        os.system('C:/Users/Дамир/PycharmProjects/figure-generator/outer_image_processing/Sobel/bin/Debug'
+                  '/Sobel.exe')
 
         im = Image.open("C:/Directory/readyedges.png")
         black_point = (0, 0, 0, 255)

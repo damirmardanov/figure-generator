@@ -1,0 +1,18 @@
+C:\Users\mpound\Desktop\Computerphile Resources\KernelConvolution\Sobel\bin\Debug\Sobel.exe.config
+C:\Users\mpound\Desktop\Computerphile Resources\KernelConvolution\Sobel\bin\Debug\Sobel.exe
+C:\Users\mpound\Desktop\Computerphile Resources\KernelConvolution\Sobel\bin\Debug\Sobel.pdb
+C:\Users\mpound\Desktop\Computerphile Resources\KernelConvolution\Sobel\obj\Debug\Sobel.exe
+C:\Users\mpound\Desktop\Computerphile Resources\KernelConvolution\Sobel\obj\Debug\Sobel.pdb
+C:\Users\mpound\Desktop\Computerphile Resources\KernelConvolution\Sobel\obj\Debug\Sobel.csprojResolveAssemblyReference.cache
+C:\Users\Дамир\Downloads\Project\Sobel\bin\Debug\Sobel.exe.config
+C:\Users\Дамир\Downloads\Project\Sobel\obj\Debug\Sobel.exe
+C:\Users\Дамир\Downloads\Project\Sobel\obj\Debug\Sobel.pdb
+C:\Users\Дамир\Downloads\Project\Sobel\bin\Debug\Sobel.exe
+C:\Users\Дамир\Downloads\Project\Sobel\bin\Debug\Sobel.pdb
+C:\Users\Дамир\Downloads\Project\Sobel\obj\Debug\Sobel.csprojResolveAssemblyReference.cache
+C:\Users\Дамир\Desktop\Учеба\Диплом\Project\Sobel\bin\Debug\Sobel.exe.config
+C:\Users\Дамир\Desktop\Учеба\Диплом\Project\Sobel\obj\Debug\Sobel.exe
+C:\Users\Дамир\Desktop\Учеба\Диплом\Project\Sobel\obj\Debug\Sobel.pdb
+C:\Users\Дамир\Desktop\Учеба\Диплом\Project\Sobel\bin\Debug\Sobel.exe
+C:\Users\Дамир\Desktop\Учеба\Диплом\Project\Sobel\bin\Debug\Sobel.pdb
+C:\Users\Дамир\Desktop\Учеба\Диплом\Project\Sobel\obj\Debug\Sobel.csprojResolveAssemblyReference.cache
