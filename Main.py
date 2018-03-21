@@ -20,8 +20,6 @@ def main():
     figure_numbers.update({"Popcorn": int(input("Input number of 'Popcorn' pictures: "))})
 
     utilities.clear_output_images()
-    # folder = 'C:/Users/Дамир/Desktop/Учеба/Диплом/training_images'
-    # Utilities.clear_folder(folder)
 
     iterations = 1
     for i in range(0, figure_numbers.get("Bar")):
