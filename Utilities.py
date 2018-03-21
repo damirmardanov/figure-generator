@@ -39,3 +39,8 @@ class Cleaner:
         self.clear_folder('images/Dots')
         self.clear_folder('images/Ellipses')
         self.clear_folder('images/Popcorn')
+
+
+class Logger:
+    def __init__(self, log_file_name):
+        self.log_file = open(log_file_name, 'w', newline='')

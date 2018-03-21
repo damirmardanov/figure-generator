@@ -1,5 +1,6 @@
 from __future__ import division
-from Utilities import Cleaner, Writer
+from datetime import datetime
+from Utilities import Cleaner, Writer, Logger
 from Plotter import Plotter
 from Processing import Processing
 from Converter import Converter
@@ -11,6 +12,7 @@ from figures.Popcorn import PopcornBuilder
 
 
 def main():
+    logs = Logger('log_' + datetime.strftime(datetime.now(), "%y_%m_%d_%H:%M"))
     writer = Writer(input("Input csv file name: "))
     figure_numbers = {}
     figure_numbers.update({"Bar": int(input("Input number of 'Bar' pictures: "))})
