@@ -2,7 +2,7 @@ import csv
 import os
 
 
-class Utilities:
+class Writer:
     def __init__(self, file_name):
         self.csv_writer = self.initialize_csv_file(file_name)
 
@@ -13,6 +13,14 @@ class Utilities:
         return csv.writer(csv_file, delimiter=',',
                           quotechar='|', quoting=csv.QUOTE_MINIMAL)
 
+    def write_row_to_file(self, row, file_type='.csv'):
+        if file_type == '.csv':
+            self.csv_writer.writerow(row)
+        else:
+            raise Exception("Unknown file type!")
+
+
+class Cleaner:
     @staticmethod
     def clear_folder(folder):
         print('clearing ' + folder + '...')
@@ -31,9 +39,3 @@ class Utilities:
         self.clear_folder('images/Dots')
         self.clear_folder('images/Ellipses')
         self.clear_folder('images/Popcorn')
-
-    def write_row_to_file(self, row, file_type='.csv'):
-        if file_type == '.csv':
-            self.csv_writer.writerow(row)
-        else:
-            raise Exception("Unknown file type!")

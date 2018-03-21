@@ -1,5 +1,5 @@
 from __future__ import division
-from Utilities import Utilities
+from Utilities import Cleaner, Writer
 from Plotter import Plotter
 from Processing import Processing
 from Converter import Converter
@@ -11,7 +11,7 @@ from figures.Popcorn import PopcornBuilder
 
 
 def main():
-    utilities = Utilities(input("Input csv file name: "))
+    writer = Writer(input("Input csv file name: "))
     figure_numbers = {}
     figure_numbers.update({"Bar": int(input("Input number of 'Bar' pictures: "))})
     figure_numbers.update({"Circle": int(input("Input number of 'Circle' pictures: "))})
@@ -19,7 +19,7 @@ def main():
     figure_numbers.update({"Ellipse": int(input("Input number of 'Ellipse' pictures: "))})
     figure_numbers.update({"Popcorn": int(input("Input number of 'Popcorn' pictures: "))})
 
-    utilities.clear_output_images()
+    Cleaner().clear_output_images()
 
     iterations = 1
     for i in range(0, figure_numbers.get("Bar")):
@@ -29,7 +29,7 @@ def main():
         Plotter.plot(bar, filename='C:/Directory/output.png')
         image = Processing.process_image('images/Bars/sample' + str(iterations) + '.png')
 
-        utilities.write_row_to_file(
+        writer.write_row_to_file(
             Converter.convert_image_to_csv_row(image, "Bar")
         )
 
@@ -44,7 +44,7 @@ def main():
         Plotter.plot(circle, filename='C:/Directory/output.png')
         image = Processing.process_image('images/Circles/sample' + str(iterations) + '.png')
 
-        utilities.write_row_to_file(
+        writer.write_row_to_file(
             Converter.convert_image_to_csv_row(image, "Circle")
         )
 
@@ -59,7 +59,7 @@ def main():
         Plotter.plot(figures=dots, filename='C:/Directory/output.png')
         image = Processing.process_image('images/Dots/sample' + str(iterations) + '.png')
 
-        utilities.write_row_to_file(
+        writer.write_row_to_file(
             Converter.convert_image_to_csv_row(image, "Dots")
         )
 
@@ -74,7 +74,7 @@ def main():
         Plotter.plot(ellipse, filename='C:/Directory/output.png')
         image = Processing.process_image('images/Ellipses/sample' + str(iterations) + '.png')
 
-        utilities.write_row_to_file(
+        writer.write_row_to_file(
             Converter.convert_image_to_csv_row(image, "Ellipse")
         )
 
@@ -89,7 +89,7 @@ def main():
         Plotter.plot(figures=popcorn, filename='C:/Directory/output.png')
         image = Processing.process_image('images/Popcorn/sample' + str(iterations) + '.png')
 
-        utilities.write_row_to_file(
+        writer.write_row_to_file(
             Converter.convert_image_to_csv_row(image, "Popcorn")
         )
 
