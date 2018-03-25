@@ -12,7 +12,8 @@ from figures.Popcorn import PopcornBuilder
 
 
 def main():
-    logs = Logger('log_' + datetime.strftime(datetime.now(), "%y_%m_%d_%H:%M"))
+    logs = Logger('log_' + datetime.strftime(datetime.now(), "%d_%m_%H_%M") + '.txt')
+    logs.write_log("Writer = ", " 1234")
     writer = Writer(input("Input csv file name: "))
     figure_numbers = {}
     figure_numbers.update({"Bar": int(input("Input number of 'Bar' pictures: "))})

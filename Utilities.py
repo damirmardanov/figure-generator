@@ -1,5 +1,7 @@
 import csv
+import logging
 import os
+from datetime import datetime
 
 
 class Writer:
@@ -43,4 +45,13 @@ class Cleaner:
 
 class Logger:
     def __init__(self, log_file_name):
-        self.log_file = open(log_file_name, 'w', newline='')
+        self.logger = logging.getLogger('FigureGenerator')
+        self.logger.setLevel(logging.DEBUG)
+
+        log_file = logging.FileHandler(log_file_name)
+        self.logger.addHandler(log_file)
+
+    def write_log(self, prompt="", value=""):
+        log_string = str(datetime.now()) + "\t\t" + str(prompt) + str(value)
+        self.logger.debug(log_string)
+
