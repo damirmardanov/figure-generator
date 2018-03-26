@@ -13,7 +13,6 @@ from figures.Popcorn import PopcornBuilder
 
 def main():
     logs = Logger('log_' + datetime.strftime(datetime.now(), "%d_%m_%H_%M") + '.txt')
-    logs.write_log("Writer = ", " 1234")
     writer = Writer(input("Input csv file name: "))
     figure_numbers = {}
     figure_numbers.update({"Bar": int(input("Input number of 'Bar' pictures: "))})
@@ -29,7 +28,7 @@ def main():
         print("Bar: step " + str(iterations) + " of " + str(figure_numbers.get("Bar")))
 
         bar = BarBuilder.generate_random()
-        Plotter.plot(bar, filename='C:/Directory/output.png')
+        Plotter.plot(bar, filename='image/buffer/output.png')
         image = Processing.process_image('images/Bars/sample' + str(iterations) + '.png')
 
         writer.write_row_to_file(
@@ -44,7 +43,7 @@ def main():
         print("Circle: step " + str(iterations) + " of " + str(figure_numbers.get("Circle")))
 
         circle = CircleBuilder.generate_random()
-        Plotter.plot(circle, filename='C:/Directory/output.png')
+        Plotter.plot(circle, filename='image/buffer/output.png')
         image = Processing.process_image('images/Circles/sample' + str(iterations) + '.png')
 
         writer.write_row_to_file(
@@ -59,7 +58,7 @@ def main():
         print("Dots: step " + str(iterations) + " of " + str(figure_numbers.get("Dots")))
 
         dots = DotsBuilder.generate_random()
-        Plotter.plot(figures=dots, filename='C:/Directory/output.png')
+        Plotter.plot(figures=dots, filename='image/buffer/output.png')
         image = Processing.process_image('images/Dots/sample' + str(iterations) + '.png')
 
         writer.write_row_to_file(
@@ -74,7 +73,7 @@ def main():
         print("Ellipse: step " + str(iterations) + " of " + str(figure_numbers.get("Ellipse")))
 
         ellipse = EllipseBuilder.generate_random()
-        Plotter.plot(ellipse, filename='C:/Directory/output.png')
+        Plotter.plot(ellipse, filename='image/buffer/output.png')
         image = Processing.process_image('images/Ellipses/sample' + str(iterations) + '.png')
 
         writer.write_row_to_file(
@@ -89,7 +88,7 @@ def main():
         print("Popcorn: step " + str(iterations) + " of " + str(figure_numbers.get("Popcorn")))
 
         popcorn = PopcornBuilder.generate_random()
-        Plotter.plot(figures=popcorn, filename='C:/Directory/output.png')
+        Plotter.plot(figures=popcorn, filename='image/buffer/output.png')
         image = Processing.process_image('images/Popcorn/sample' + str(iterations) + '.png')
 
         writer.write_row_to_file(

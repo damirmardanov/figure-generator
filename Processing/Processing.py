@@ -1,14 +1,15 @@
 import os
+import cv2
 from PIL import Image
 from Processing.GaussianNoise import GaussianNoise
 
 
 def process_image(output_image_path):
-    image = Image.open("C:/Directory/output.png")
-    noised_image = GaussianNoise.noise_image(image)
-    noised_image.save("C:/Directory/output.png")
-    image.close()
-    noised_image.close()
+    image = cv2.imread("image/buffer/output.png", cv2.IMREAD_GRAYSCALE)  # реверснуть цвета?
+    cv2.imwrite(
+        "image/buffer/output.png",
+        GaussianNoise().noise_image(image)
+    )
 
     os.system('C:/Users/Дамир/PycharmProjects/figure-generator/outer_image_processing/GaussianBlur/bin/Debug'
               '/KernelConvolution.exe')

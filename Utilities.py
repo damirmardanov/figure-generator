@@ -41,6 +41,7 @@ class Cleaner:
         self.clear_folder('images/Dots')
         self.clear_folder('images/Ellipses')
         self.clear_folder('images/Popcorn')
+        # self.clear_folder('images/buffer')
 
 
 class Logger:
