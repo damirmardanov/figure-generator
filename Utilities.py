@@ -49,7 +49,7 @@ class Logger:
         self.logger = logging.getLogger('FigureGenerator')
         self.logger.setLevel(logging.DEBUG)
 
-        log_file = logging.FileHandler(log_file_name)
+        log_file = logging.FileHandler('logs/'+log_file_name)
         self.logger.addHandler(log_file)
 
     def write_log(self, prompt="", value=""):

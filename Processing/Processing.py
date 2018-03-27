@@ -5,7 +5,7 @@ from Processing.GaussianNoise import GaussianNoise
 
 
 def process_image(output_image_path):
-    image = cv2.imread("image/buffer/output.png", cv2.IMREAD_GRAYSCALE)  # реверснуть цвета?
+    image = cv2.imread("images/buffer/output.png", cv2.IMREAD_GRAYSCALE)  # реверснуть цвета?
     cv2.imwrite(
         "image/buffer/output.png",
         GaussianNoise().noise_image(image)
