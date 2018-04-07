@@ -16,11 +16,10 @@ class Converter:
         else:
             row_final.append('0')
 
-        for pixel in list(image.getdata()):
+        for pixel in list(image):
             if pixel[0] != 0 or pixel[1] != 0 or pixel[2] != 0:
                 row_final.append(str('1'))
             else:
                 row_final.append(str('0'))
-        image.close()
 
         return row_final

@@ -1,25 +1,29 @@
-import os
 import cv2
-from PIL import Image
 from Processing.GaussianNoise import GaussianNoise
+from Processing.GausianBlur import GaussianBlur
 
 
 def process_image(output_image_path):
-    image = cv2.imread("images/buffer/output.png", cv2.IMREAD_GRAYSCALE)  # реверснуть цвета?
+    image = cv2.imread("images/buffer/output.png", cv2.IMREAD_GRAYSCALE)
+    noisy = GaussianNoise.process(image)
     cv2.imwrite(
-        "image/buffer/output.png",
-        GaussianNoise().noise_image(image)
+        'images/buffer/noisy.png',
+        noisy
+    )
+    clear = GaussianBlur.process(noisy)
+    cv2.imwrite(
+        'images/buffer/clear.png',
+        clear
+    )
+    sobel_image = cv2.Canny(clear, 1, 120)  # Sobel.process(clear)
+
+    black_point = (0, 0, 0, 255)
+    if list(sobel_image).count(black_point) == 729:
+        return
+
+    cv2.imwrite(
+        output_image_path,
+        sobel_image
     )
 
-    os.system('C:/Users/Дамир/PycharmProjects/figure-generator/outer_image_processing/GaussianBlur/bin/Debug'
-              '/KernelConvolution.exe')
-    os.system('C:/Users/Дамир/PycharmProjects/figure-generator/outer_image_processing/Sobel/bin/Debug'
-              '/Sobel.exe')
-
-    im = Image.open("C:/Directory/readyedges.png")
-    black_point = (0, 0, 0, 255)
-    if list(im.getdata()).count(black_point) == 729:
-        im.close()
-        return
-    im.save(output_image_path)
-    return im
+    return sobel_image

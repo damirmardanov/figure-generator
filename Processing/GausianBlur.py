@@ -1,11 +1,8 @@
-from datetime import datetime
 import cv2
+import numpy as np
 
 
 class GaussianBlur:
     @staticmethod
-    def filter_image(image_to_filter):
-        return
-
-    def image_to_cv_image(self):
-        return
+    def process(image_to_filter):
+        return cv2.GaussianBlur(np.uint8(image_to_filter), (3, 3), 0, 0)
