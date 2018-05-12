@@ -1,16 +1,25 @@
 import numpy.random as rnd
 import random
 from matplotlib.patches import Circle
+from figures.Figure import Figures
 
 
-class DotsBuilder:
+class DotsBuilder(Figures):
     @staticmethod
-    def generate_random(count=0):
+    def generate(xy, count=0, radius=0):
         elements = []
-        if count == 0:
-            for i in range(random.randint(3, 10)):
-                elements.append(Circle(xy=rnd.uniform(2.8, 7.2, 2), radius=rnd.uniform(0.01, 0.1)))
-        else:
-            for i in range(count):
-                elements.append(Circle(xy=rnd.uniform(2.8, 7.2, 2), radius=rnd.uniform(0.01, 0.1)))
+
+        for i in range(count):
+            elements.append(Circle(xy=xy, radius=radius))
+
         return elements
+
+    def generate_random(self, count=0):
+        xy = rnd.uniform(2.8, 7.2, 2)
+        radius = rnd.uniform(0.01, 0.1)
+
+        if count == 0:
+            count = random.randint(3, 10)
+
+        return self.generate(xy, count=count, radius=radius)
+
