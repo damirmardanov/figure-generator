@@ -6,7 +6,7 @@ from figures.Figure import Figures
 
 class DotsBuilder(Figures):
     @staticmethod
-    def generate(xy, count=0, radius=0):
+    def generate(xy, count=0):
         elements = []
 
         for i in range(count):
