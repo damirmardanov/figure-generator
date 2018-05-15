@@ -10,16 +10,17 @@ class DotsBuilder(Figures):
         elements = []
 
         for i in range(count):
+            xy = rnd.uniform(2.8, 7.2, 2)
+            radius = rnd.uniform(0.01, 0.1)
             elements.append(Circle(xy=xy, radius=radius))
 
         return elements
 
     def generate_random(self, count=0):
         xy = rnd.uniform(2.8, 7.2, 2)
-        radius = rnd.uniform(0.01, 0.1)
 
         if count == 0:
             count = random.randint(3, 10)
 
-        return self.generate(xy, count=count, radius=radius)
+        return self.generate(xy, count=count)
 

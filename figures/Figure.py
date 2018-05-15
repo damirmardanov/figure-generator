@@ -13,7 +13,7 @@ class Figure(ABC):
 
 class Figures(ABC):
     @abstractstaticmethod
-    def generate(xy, count=0, radius=0):
+    def generate(xy, count=0):
         pass
 
     @abstractclassmethod
