@@ -9,7 +9,7 @@ class PopcornBuilder(Figures):
     def generate(xy, count=0):
         elements = []
 
-        for i in range(random.randint(3, 7)):
+        for i in range(count):
             width = rnd.uniform(1.0, 3.5)
             height = width * rnd.uniform(0.6, 1.0)
             x = rnd.uniform(xy[0] - 1.5, xy[0] + 1.5)
