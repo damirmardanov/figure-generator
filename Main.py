@@ -9,9 +9,10 @@ from figures.Circle import CircleBuilder
 from figures.Dots import DotsBuilder
 from figures.Ellipse import EllipseBuilder
 from figures.Popcorn import PopcornBuilder
+from tkinter import *
 
 
-def main():
+def process():
     logs = Logger('log_' + datetime.strftime(datetime.now(), "%d_%m_%H_%M") + '.txt')
     writer = Writer(input("Input csv file name: "))
     figure_numbers = {}
@@ -101,6 +102,34 @@ def main():
     return
 
 
+def quit(root):
+    root.destroy()
+
+
+def main():
+    root = Tk()
+    btn = Button(root,  # родительское окно
+                 text="Click me",  # надпись на кнопке
+                 width=30, height=5,  # ширина и высота
+                 bg="white", fg="black")  # цвет фона и надписи
+
+    quit_btn = Button(root,  # родительское окно
+                      text="Quit",  # надпись на кнопке
+                      width=30, height=5,  # ширина и высота
+                      bg="white", fg="black")  # цвет фона и надписи
+
+    bar_input = Entry(root,
+                      text="input bar count")
+
+    #btn.bind("<Button-1>", process())  # при нажатии ЛКМ на кнопку вызывается функция Hello
+    btn.pack()  # расположить кнопку на главном окне
+
+    #quit_btn.bind("<Button-2>", quit(root))
+    quit_btn.pack()
+
+    bar_input.pack()
+    root.mainloop()
+
+
 if __name__ == "__main__":
     main()
-
