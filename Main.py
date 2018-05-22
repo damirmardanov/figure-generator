@@ -12,7 +12,8 @@ from figures.Popcorn import PopcornBuilder
 from tkinter import *
 
 
-def process():
+def process(self):
+    # global root
     logs = Logger('log_' + datetime.strftime(datetime.now(), "%d_%m_%H_%M") + '.txt')
     writer = Writer(input("Input csv file name: "))
     figure_numbers = {}
@@ -102,34 +103,23 @@ def process():
     return
 
 
-def quit(root):
-    root.destroy()
+class Application(Tk):
+    def __init__(self):
+        Tk.__init__(self)
+        self.bar_input = Entry(self,
+                               text="input bar count")
+        self.start_button = Button(self,  # родительское окно
+                                   text="Click me",  # надпись на кнопке
+                                   width=30, height=5,  # ширина и высота
+                                   bg="white", fg="black", command=self.on_button)  # цвет фона и надписи
+
+        self.start_button.pack()  # расположить кнопку на главном окне
+        self.bar_input.pack()
+        Button(self, text="Quit", command=self.destroy).pack()
+
+    def on_button(self):
+        print(self.bar_input.get())
 
 
-def main():
-    root = Tk()
-    btn = Button(root,  # родительское окно
-                 text="Click me",  # надпись на кнопке
-                 width=30, height=5,  # ширина и высота
-                 bg="white", fg="black")  # цвет фона и надписи
-
-    quit_btn = Button(root,  # родительское окно
-                      text="Quit",  # надпись на кнопке
-                      width=30, height=5,  # ширина и высота
-                      bg="white", fg="black")  # цвет фона и надписи
-
-    bar_input = Entry(root,
-                      text="input bar count")
-
-    #btn.bind("<Button-1>", process())  # при нажатии ЛКМ на кнопку вызывается функция Hello
-    btn.pack()  # расположить кнопку на главном окне
-
-    #quit_btn.bind("<Button-2>", quit(root))
-    quit_btn.pack()
-
-    bar_input.pack()
-    root.mainloop()
-
-
-if __name__ == "__main__":
-    main()
+app = Application()
+app.mainloop()
