@@ -4,8 +4,8 @@ import numpy.random as rnd
 
 class Plotter:
     @staticmethod
-    def plot(figure=None, figures=None, filename='output.png'):
-        fig = plt.figure(0, figsize=(64 / 102, 64 / 102), dpi=102)
+    def plot(figure=None, figures=None, filename='output.png', height=27, width=27):
+        fig = plt.figure(0, figsize=(height / 102, width / 102), dpi=102)
         ax = fig.add_subplot(111, aspect='equal')
         if (figure is not None) and (figures is None):
             ax.add_artist(figure)
