@@ -108,26 +108,25 @@ class Application(Tk):
 
         self.start_button.grid(row=8, columnspan=2, pady=input_paddingy)
 
-    def on_validate_count(self, d, i, P, s, S, v, V, W):
+    def on_validate_count(self, d='', i='', P='', s='', S='', v='', V='', W=''):
         try:
             if P == '':
                 return False
             if int(P) == 0:
                 return True
             else:
-                print(int(P))
-                return int(P) <= 100000
+                return 0 <= int(P) <= 100000
         except ValueError:
             return False
 
-    def on_validate_res(self, d, i, P, s, S, v, V, W):
+    def on_validate_res(self, d='', i='', P='', s='', S='', v='', V='', W=''):
         try:
             if P == '':
                 return False
             if int(P) == 0:
                 return True
             else:
-                return int(P) <= 2000
+                return 0 < int(P) <= 2000
         except ValueError:
             return False
 

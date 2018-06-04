@@ -6,13 +6,13 @@ from datetime import datetime
 
 class Writer:
     def __init__(self, file_name):
+        self.file = None
         self.csv_writer = self.initialize_csv_file(file_name)
 
-    @staticmethod
-    def initialize_csv_file(file_name):
-        csv_file_name = "C:/Users/Дамир/Desktop/Учеба/Диплом/csv_files/" + file_name + ".csv"
-        csv_file = open(csv_file_name, 'w', newline='')
-        return csv.writer(csv_file, delimiter=',',
+    def initialize_csv_file(self, file_name):
+        self.file = open(file_name, 'w', newline='')
+
+        return csv.writer(self.file, delimiter=',',
                           quotechar='|', quoting=csv.QUOTE_MINIMAL)
 
     def write_row_to_file(self, row, file_type='.csv'):
